@@ -1,27 +1,36 @@
 package menufact.plats;
 
+import ingredients.Ingredient;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class PlatAuMenu {
     private int code;
     private String description;
-    private double prix;
+    private double price;
+    private Map<Ingredient, Integer> ingredients = new HashMap<>();
 
-    public PlatAuMenu(int code, String description, double prix) {
+    public PlatAuMenu(){}
+
+    public PlatAuMenu(int code, String description, double prix, Map<Ingredient, Integer> ingredients) {
         this.code = code;
         this.description = description;
-        this.prix = prix;
-    }
-
-    public PlatAuMenu() {
+        this.price = prix;
+        this.ingredients = ingredients;
     }
 
     @Override
     public String toString() {
-        return "menufact.plats.PlatAuMenu{" +
-                "code=" + code +
-                ", description='" + description + '\'' +
-                ", prix=" + prix +
-                "}\n";
+        return "menufact.plats.PlatAuMenu : {" +
+                "code : '" + code + '\'' +
+                ", description : '" + description + '\'' +
+                ", prix : '" + price + "$'}\n";
     }
+
+    public Map<Ingredient, Integer> getIngredients() { return ingredients; }
+
+    public void setIngredients(Map<Ingredient, Integer> ingredients) { this.ingredients = ingredients; }
 
     public int getCode() {
         return code;
@@ -39,11 +48,11 @@ public class PlatAuMenu {
         this.description = description;
     }
 
-    public double getPrix() {
-        return prix;
+    public double getPrice() {
+        return price;
     }
 
-    public void setPrix(double prix) {
-        this.prix = prix;
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

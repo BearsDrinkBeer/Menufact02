@@ -42,7 +42,7 @@ public class Facture {
     {
         double soustotal=0;
          for (PlatChoisi p : platchoisi)
-             soustotal += p.getQuantite() * p.getPlat().getPrix();
+             soustotal += p.getQuantite() * p.getPlat().getPrice();
         return soustotal;
     }
 
@@ -169,7 +169,7 @@ public class Facture {
         factureGenere += "Seq   Plat         Prix   Quantite\n";
         for (PlatChoisi plat : platchoisi)
         {
-            factureGenere +=  i + "     " + plat.getPlat().getDescription() +  "  " + plat.getPlat().getPrix() +  "      " + plat.getQuantite() + "\n";
+            factureGenere +=  i + "     " + plat.getPlat().getDescription() +  "  " + plat.getPlat().getPrice() +  "      " + plat.getQuantite() + "\n";
             i++;
         }
 

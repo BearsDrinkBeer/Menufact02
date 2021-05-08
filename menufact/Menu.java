@@ -6,18 +6,14 @@ import menufact.plats.PlatAuMenu;
 import java.util.ArrayList;
 
 public class Menu {
+    private static Menu menu;
     private String description;
     private int courant;
     private ArrayList<PlatAuMenu> plat = new ArrayList<PlatAuMenu>();
 
-    public Menu(String description) {
-        this.description = description;
-    }
+    private Menu() {}
 
-    void ajoute (PlatAuMenu p)
-    {
-        plat.add(p);
-    }
+    void ajoute (PlatAuMenu p) { plat.add(p); }
 
     public void position(int i)
     {
@@ -45,13 +41,19 @@ public class Menu {
             courant--;
     }
 
+    public String getDescription() { return description; }
+
+    public void setDescription(String description) { this.description = description; }
+
+    public static Menu getMenu() {
+        return menu = (menu == null) ? new Menu() : menu;
+    }
 
     @Override
     public String toString() {
-        return "menufact.Menu{" +
-                "description='" + description + '\'' +
-                ", courant=" + courant +
-                ", plat=" + "\n" + plat +
-                '}';
+        return "menufact.Menu : {" +
+                "description : '" + description + '\'' +
+                ", courant : '" + courant + '\'' +
+                ", plat : " + "\n" + plat + '}';
     }
 }
