@@ -1,9 +1,13 @@
 package ingredients;
 
-public class Ingredient {
+import ingredients.Bridge.IngredientEtat;
+
+public abstract class Ingredient {
+
     private String nom;
     private String description;
-    private TypeIngredient typeIngredient;
+    private IngredientEtat etat;
+    protected TypeIngredient type;
 
     public String getNom() {
         return nom;
@@ -13,17 +17,36 @@ public class Ingredient {
         this.nom = nom;
     }
 
-    public String getDescription() { return description; }
+    public String getDescription() {
+        return description;
+    }
 
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public TypeIngredient getTypeIngredient() {
-        return typeIngredient;
+    public IngredientEtat getEtat() {
+        return etat;
+    }
+    public void setEtat(IngredientEtat etat) {
+        this.etat = etat;
     }
 
-    public void setTypeIngredient(TypeIngredient typeIngredient) {
-        this.typeIngredient = typeIngredient;
+    public TypeIngredient getType() {
+        return type;
+    }
+
+    public void setType(TypeIngredient type) {
+        this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "Ingredient{" +
+                "nom : '" + nom + '\'' +
+                ", description : '" + description + '\'' +
+                ", " + etat +
+                ", type : '" + type +
+                "'}";
     }
 }

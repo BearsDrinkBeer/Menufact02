@@ -1,25 +1,33 @@
 package ingredients;
 
-import ingredients.exceptions.IngredientException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class IngredientInventaire {
-    private IngredientInventaire ingredientInventaire;
-    private int quantite;
+    private static IngredientInventaire inventaire;
+    private Map<Ingredient,Integer> ingredients = new HashMap<>();
 
-    public IngredientInventaire(IngredientInventaire ingredientInventaire, int quantite) {
-        this.ingredientInventaire = ingredientInventaire;
-        this.quantite = quantite;
+    private IngredientInventaire() {
     }
 
-    public int getQuantite() {
-        return quantite;
+    public static IngredientInventaire getInventaire() {
+        if (inventaire == null)
+            inventaire = new IngredientInventaire();
+        return inventaire;
     }
 
-    public void setQuantite(int quantite) throws IngredientException{
+    public void addIngredient(Ingredient ingredient, Integer quantity) {
+        this.ingredients.put(ingredient,quantity);
+    }
 
-        if (quantite < 0)
-            throw new IngredientException("Il n'est pas possible d'avoir une quantité negative");
-        else
-            this.quantite = quantite;
+    @Override
+    public String toString() {
+        String text = "";
+        for (Map.Entry<Ingredient, Integer> entry: ingredients.entrySet()) {
+            text += (entry.getKey() + ", quantite : " + entry.getValue()) +
+            "\n";
+        }
+        return text;
     }
 }
