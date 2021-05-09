@@ -4,6 +4,7 @@ import menufact.plats.PlatChoisi;
 
 public abstract class StatePreparation {
     protected PlatChoisi plat;
+    protected String state;
 
     public StatePreparation(PlatChoisi plat){
         this.plat = plat;
@@ -15,4 +16,8 @@ public abstract class StatePreparation {
     public abstract void servi();
     public abstract void impossible();
 
+    @Override
+    public String toString(){
+        return "etat : '" + state + '\'';
+    }
 }

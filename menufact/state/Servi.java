@@ -3,7 +3,10 @@ package menufact.state;
 import menufact.plats.PlatChoisi;
 
 public class Servi extends StatePreparation{
-    public Servi(PlatChoisi plat) { super(plat); }
+    public Servi(PlatChoisi plat) {
+        super(plat);
+        this.state = "Servi";
+    }
 
     @Override
     public void commande() {

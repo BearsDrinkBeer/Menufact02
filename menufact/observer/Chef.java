@@ -1,7 +1,7 @@
 package menufact.observer;
 
 import ingredients.Ingredient;
-import ingredients.IngredientInventaire;
+import inventaire.IngredientInventaire;
 import menufact.plats.PlatChoisi;
 import menufact.state.Impossible;
 import menufact.state.StatePreparation;
@@ -20,13 +20,13 @@ public class Chef implements EventListener{
     @Override
     public void update(PlatChoisi plat) {
         platsChoisis.add(plat);
+        this.preparation();
     }
 
     private boolean verify(PlatChoisi plat){
-        Map<Ingredient, Integer> ingredients = plat.getPlat().getIngredients();
-
+        Map<Ingredient, Integer> ingredients = plat.getPlat().getIngredients(); //Ingredients du plat au menu
         for(Map.Entry<Ingredient, Integer> ingredient : ingredients.entrySet()){
-            if(ingredient.getValue() < inventaire.get(ingredient.getKey())){
+            if(ingredient.getValue() * plat.getQuantite() > inventaire.get(ingredient.getKey())){
                 return false;
             }
         }
@@ -43,6 +43,7 @@ public class Chef implements EventListener{
                 state = new Impossible(plat);
                 state.impossible();
             }
+            platsChoisis.remove(plat);
         }
     }
 }

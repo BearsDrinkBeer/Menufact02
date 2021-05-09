@@ -30,7 +30,9 @@ public class PlatAuMenu {
 
     public Map<Ingredient, Integer> getIngredients() { return ingredients; }
 
-    public void setIngredients(Map<Ingredient, Integer> ingredients) { this.ingredients = ingredients; }
+    public void setIngredients(Ingredient ingredient, Integer quantity) {
+        this.ingredients.put(ingredient, quantity);
+    }
 
     public int getCode() {
         return code;

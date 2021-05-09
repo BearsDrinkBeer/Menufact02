@@ -1,6 +1,7 @@
 package menufact;
 
 import menufact.exceptions.MenuException;
+import menufact.plats.FactoryPlatAuMenu;
 import menufact.plats.PlatAuMenu;
 
 import java.util.ArrayList;
@@ -9,11 +10,11 @@ public class Menu {
     private static Menu menu;
     private String description;
     private int courant;
-    private ArrayList<PlatAuMenu> plat = new ArrayList<PlatAuMenu>();
+    private ArrayList<PlatAuMenu> plats = new ArrayList<PlatAuMenu>();
 
     private Menu() {}
 
-    void ajoute (PlatAuMenu p) { plat.add(p); }
+    void ajoute (PlatAuMenu p) { plats.add(p); }
 
     public void position(int i)
     {
@@ -22,12 +23,24 @@ public class Menu {
 
     public PlatAuMenu platCourant()
     {
-        return plat.get(courant);
+        return plats.get(courant);
+    }
+
+    public PlatAuMenu getPlatAuMenu(int code){
+        for(PlatAuMenu plat : plats){
+            if(plat.getCode() == code){
+                return plat;
+            }
+        }
+        FactoryPlatAuMenu factory = new FactoryPlatAuMenu();
+        PlatAuMenu plat = factory.createPlat();
+        plat.setDescription("Le plat n'est pas au menu");
+        return plat;
     }
 
     public void positionSuivante() throws MenuException
     {
-        if (courant+1 >= plat.size())
+        if (courant+1 >= plats.size())
             throw new MenuException("On depasse le nombre maximale de plats.");
         else
             courant++;
@@ -54,6 +67,6 @@ public class Menu {
         return "menufact.Menu : {" +
                 "description : '" + description + '\'' +
                 ", courant : '" + courant + '\'' +
-                ", plat : " + "\n" + plat + '}';
+                ", plats : " + "\n" + plats + '}';
     }
 }

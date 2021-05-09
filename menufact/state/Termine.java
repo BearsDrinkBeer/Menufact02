@@ -5,6 +5,7 @@ import menufact.plats.PlatChoisi;
 public class Termine extends StatePreparation{
     public Termine(PlatChoisi plat) {
         super(plat);
+        this.state = "Termine";
     }
 
     @Override

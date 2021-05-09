@@ -15,7 +15,9 @@ public class EventManager {
         }
     }
 
-    public void subscribe(String event, EventListener listener){ listeners.get(event).add(listener); }
+    public void subscribe(String event, EventListener listener){
+        listeners.get(event).add(listener);
+    }
 
     public void unsubscribe(String event, EventListener listener){
         listeners.get(event).remove(listener);

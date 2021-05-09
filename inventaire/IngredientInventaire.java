@@ -1,8 +1,9 @@
-package ingredients;
+package inventaire;
+
+import ingredients.Ingredient;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class IngredientInventaire {
     private static IngredientInventaire inventaire;
@@ -30,4 +31,6 @@ public class IngredientInventaire {
         }
         return text;
     }
+
+    public Map<Ingredient, Integer> getIngredients() { return ingredients; }
 }

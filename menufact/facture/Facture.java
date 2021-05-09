@@ -2,6 +2,8 @@ package menufact.facture;
 
 import menufact.Client;
 import menufact.facture.exceptions.FactureException;
+import menufact.observer.Chef;
+import menufact.observer.EventManager;
 import menufact.plats.PlatChoisi;
 
 import java.util.ArrayList;
@@ -19,6 +21,7 @@ public class Facture {
     private ArrayList<PlatChoisi> platchoisi = new ArrayList<PlatChoisi>();
     private int courant;
     private Client client;
+    private EventManager event;
 
 
     /**********************Constantes ************/
@@ -115,6 +118,8 @@ public class Facture {
         etat = FactureEtat.OUVERTE;
         courant = -1;
         this.description = description;
+        this.event = new EventManager("addPlat");
+        event.subscribe("addPlat", new Chef());
     }
 
     /**
@@ -124,8 +129,10 @@ public class Facture {
      */
     public void ajoutePlat(PlatChoisi p) throws FactureException
     {
-        if (etat == FactureEtat.OUVERTE)
+        if (etat == FactureEtat.OUVERTE) {
             platchoisi.add(p);
+            event.notify("addPlat", p);
+        }
         else
             throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");
     }
@@ -137,14 +144,14 @@ public class Facture {
     @Override
     public String toString() {
         return "menufact.facture.Facture{" +
-                "date=" + date +
-                ", description='" + description + '\'' +
-                ", etat=" + etat +
-                ", platchoisi=" + platchoisi +
-                ", courant=" + courant +
-                ", client=" + client +
-                ", TPS=" + TPS +
-                ", TVQ=" + TVQ +
+                "date : '" + date + '\'' +
+                ", description : '" + description + '\'' +
+                ", etat : '" + etat + '\'' +
+                ", platchoisi : '"  + platchoisi + '\'' +
+                ", courant : '" + courant + '\'' +
+                ", client : '" + client + '\'' +
+                ", TPS : '" + TPS + '\'' +
+                ", TVQ : '" + TVQ +
                 '}';
     }
 
@@ -157,7 +164,7 @@ public class Facture {
         String lesPlats = new String();
         String factureGenere = new String();
 
-        int i =1;
+        int i = 1;
 
 
         factureGenere =   "Facture generee.\n" +
