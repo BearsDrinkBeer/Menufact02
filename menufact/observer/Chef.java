@@ -1,6 +1,6 @@
 package menufact.observer;
 
-import ingredients.Ingredient;
+import ingredients.IngredientAuMenu;
 import inventaire.IngredientInventaire;
 import menufact.plats.PlatChoisi;
 import menufact.state.Impossible;
@@ -15,7 +15,7 @@ import java.util.Queue;
 public class Chef implements EventListener{
     private StatePreparation state;
     private Queue<PlatChoisi> platsChoisis = new LinkedList<>();
-    private Map<Ingredient, Integer> inventaire = IngredientInventaire.getInventaire().getIngredients();
+    private Map<IngredientAuMenu, Integer> inventaire = IngredientInventaire.getInventaire().getIngredients();
 
     @Override
     public void update(PlatChoisi plat) {
@@ -24,8 +24,8 @@ public class Chef implements EventListener{
     }
 
     private boolean verify(PlatChoisi plat){
-        Map<Ingredient, Integer> ingredients = plat.getPlat().getIngredients(); //Ingredients du plat au menu
-        for(Map.Entry<Ingredient, Integer> ingredient : ingredients.entrySet()){
+        Map<IngredientAuMenu, Integer> ingredients = plat.getPlat().getIngredients(); //Ingredients du plat au menu
+        for(Map.Entry<IngredientAuMenu, Integer> ingredient : ingredients.entrySet()){
             if(ingredient.getValue() * plat.getQuantite() > inventaire.get(ingredient.getKey())){
                 return false;
             }

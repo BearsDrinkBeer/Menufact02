@@ -2,51 +2,20 @@ package ingredients;
 
 import ingredients.Bridge.IngredientEtat;
 
-public abstract class Ingredient {
+public interface Ingredient {
+    String getNom();
 
-    private String nom;
-    private String description;
-    private IngredientEtat etat;
-    protected TypeIngredient type;
+    void setNom(String nom);
 
-    public String getNom() {
-        return nom;
-    }
+    String getDescription();
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+    void setDescription(String description);
 
-    public String getDescription() {
-        return description;
-    }
+    IngredientEtat getEtat();
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    void setEtat(IngredientEtat etat);
 
-    public IngredientEtat getEtat() {
-        return etat;
-    }
-    public void setEtat(IngredientEtat etat) {
-        this.etat = etat;
-    }
+    TypeIngredient getType();
 
-    public TypeIngredient getType() {
-        return type;
-    }
-
-    public void setType(TypeIngredient type) {
-        this.type = type;
-    }
-
-    @Override
-    public String toString() {
-        return "Ingredient{" +
-                "nom : '" + nom + '\'' +
-                ", description : '" + description + '\'' +
-                ", " + etat +
-                ", type : '" + type +
-                "'}";
-    }
+    void setType(TypeIngredient type);
 }

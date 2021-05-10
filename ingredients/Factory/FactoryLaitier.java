@@ -1,12 +1,11 @@
 package ingredients.Factory;
 
-import ingredients.Ingredient;
 import ingredients.Laitier;
 
-public class FactoryLaitier extends FactoryIngredients {
-    public FactoryLaitier() {
-    }
+public class FactoryLaitier implements FactoryIngredient {
+    public FactoryLaitier() {}
 
+    @Override
     public Laitier createIngredients(){
         return new Laitier();
     }

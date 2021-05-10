@@ -5,6 +5,7 @@ import menufact.facture.exceptions.FactureException;
 import menufact.observer.Chef;
 import menufact.observer.EventManager;
 import menufact.plats.PlatChoisi;
+import menufact.state.Preparation;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -35,6 +36,10 @@ public class Facture {
     public void associerClient (Client client)
     {
         this.client = client;
+    }
+
+    public Client getClientFacture() {
+        return this.client;
     }
 
     /**
@@ -78,14 +83,14 @@ public class Facture {
      */
     public void payer()
     {
-       etat = FactureEtat.PAYEE;
+        etat = FactureEtat.PAYEE;
     }
     /**
      * Permet de chager l'état de la facture à FERMEE
      */
     public void fermer()
     {
-       etat = FactureEtat.FERMEE;
+        etat = FactureEtat.FERMEE;
     }
 
     /**
@@ -107,6 +112,10 @@ public class Facture {
     public FactureEtat getEtat()
     {
         return etat;
+    }
+
+    public void setEtat(FactureEtat etat) {
+        this.etat = etat;
     }
 
     /**
@@ -131,10 +140,49 @@ public class Facture {
     {
         if (etat == FactureEtat.OUVERTE) {
             platchoisi.add(p);
+            p.setState(new Preparation(p));
             event.notify("addPlat", p);
         }
         else
             throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");
+    }
+
+    /**
+     *
+     * @param index
+     * @return
+     * @throws FactureException
+     */
+    public PlatChoisi getPlat(int index) throws FactureException
+    {
+        if (etat == FactureEtat.OUVERTE) {
+            if(index >= platchoisi.size())
+                throw new FactureException("Array index out of bound");
+            return platchoisi.get(index);
+        }
+        else
+            throw new FactureException("On peut voir un plat seulement sur une facture OUVERTE.");
+    }
+
+    /**
+     *
+     * @param index
+     * @return
+     * @throws FactureException
+     */
+    public PlatChoisi removePlat(int index) throws FactureException
+    {
+        if (etat == FactureEtat.OUVERTE) {
+            if(index >= platchoisi.size())
+                throw new FactureException("Array index out of bound");
+            return platchoisi.remove(index);
+        }
+        else
+            throw new FactureException("On peut voir un plat seulement sur une facture OUVERTE.");
+    }
+
+    public int size(){
+        return platchoisi.size();
     }
 
     /**
@@ -164,26 +212,26 @@ public class Facture {
         String lesPlats = new String();
         String factureGenere = new String();
 
-        int i = 1;
+        if(etat == FactureEtat.OUVERTE) {
+            int i = 1;
 
 
-        factureGenere =   "Facture generee.\n" +
-                          "Date:" + date + "\n" +
-                          "Description: " + description + "\n" +
-                          "Client:" + client.getNom() + "\n" +
-                          "Les plats commandes:" + "\n" + lesPlats;
+            factureGenere = "Facture generee.\n" +
+                    "Date:" + date + "\n" +
+                    "Description: " + description + "\n" +
+                    "Client:" + client.getNom() + "\n" +
+                    "Les plats commandes:" + "\n" + lesPlats;
 
-        factureGenere += "Seq   Plat         Prix   Quantite\n";
-        for (PlatChoisi plat : platchoisi)
-        {
-            factureGenere +=  i + "     " + plat.getPlat().getDescription() +  "  " + plat.getPlat().getPrice() +  "      " + plat.getQuantite() + "\n";
-            i++;
+            factureGenere += "Seq   Plat         Prix   Quantite\n";
+            for (PlatChoisi plat : platchoisi) {
+                factureGenere += i + "     " + plat.getPlat().getCode() + "  " + plat.getPlat().getPrice() + "      " + plat.getQuantite() + "\n";
+                i++;
+            }
+
+            factureGenere += "          TPS:               " + tps() + "\n";
+            factureGenere += "          TVQ:               " + tvq() + "\n";
+            factureGenere += "          Le total est de:   " + total() + "\n";
         }
-
-        factureGenere += "          TPS:               " + tps() + "\n";
-        factureGenere += "          TVQ:               " + tvq() + "\n";
-        factureGenere += "          Le total est de:   " + total() + "\n";
-
         return factureGenere;
     }
 }

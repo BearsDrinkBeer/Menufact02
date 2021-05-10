@@ -1,5 +1,5 @@
-package menufact.facture;
+package menufact.facture.exceptions;
 
-public enum FactureEtat {
+public enum FactureEtatEnum {
     OUVERTE, FERMEE, PAYEE
 }

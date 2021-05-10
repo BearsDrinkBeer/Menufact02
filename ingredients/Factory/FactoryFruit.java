@@ -1,12 +1,11 @@
 package ingredients.Factory;
 
 import ingredients.Fruit;
-import ingredients.Ingredient;
 
-public class FactoryFruit extends FactoryIngredients {
-    public FactoryFruit() {
-    }
+public class FactoryFruit implements FactoryIngredient {
+    public FactoryFruit() {}
 
+    @Override
     public Fruit createIngredients(){
         return new Fruit();
     }

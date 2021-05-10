@@ -12,13 +12,22 @@ public class Menu {
     private int courant;
     private ArrayList<PlatAuMenu> plats = new ArrayList<PlatAuMenu>();
 
-    private Menu() {}
+    private Menu() {
+        courant = 0;
+    }
 
-    void ajoute (PlatAuMenu p) { plats.add(p); }
+    public void ajoute (PlatAuMenu p) { plats.add(p); }
 
-    public void position(int i)
+    public void position(int i) throws MenuException
     {
-        courant = i;
+        if (i >= plats.size())
+            throw new MenuException("On depasse le nombre de plats du menu.");
+        else
+            courant = i;
+    }
+
+    public int getPosition() {
+        return courant;
     }
 
     public PlatAuMenu platCourant()

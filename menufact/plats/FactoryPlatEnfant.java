@@ -1,6 +1,6 @@
 package menufact.plats;
 
-public class FactoryPlatEnfant extends FactoryPlatAuMenu{
+public class FactoryPlatEnfant implements FactoryPlat{
     public FactoryPlatEnfant(){}
     @Override
     public PlatEnfant createPlat(){

@@ -1,13 +1,13 @@
 package inventaire;
 
-import ingredients.Ingredient;
+import ingredients.IngredientAuMenu;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class IngredientInventaire {
     private static IngredientInventaire inventaire;
-    private Map<Ingredient,Integer> ingredients = new HashMap<>();
+    private Map<IngredientAuMenu,Integer> ingredients = new HashMap<>();
 
     private IngredientInventaire() {
     }
@@ -18,19 +18,19 @@ public class IngredientInventaire {
         return inventaire;
     }
 
-    public void addIngredient(Ingredient ingredient, Integer quantity) {
+    public void addIngredient(IngredientAuMenu ingredient, Integer quantity) {
         this.ingredients.put(ingredient,quantity);
     }
 
     @Override
     public String toString() {
         String text = "";
-        for (Map.Entry<Ingredient, Integer> entry: ingredients.entrySet()) {
+        for (Map.Entry<IngredientAuMenu, Integer> entry: ingredients.entrySet()) {
             text += (entry.getKey() + ", quantite : " + entry.getValue()) +
             "\n";
         }
         return text;
     }
 
-    public Map<Ingredient, Integer> getIngredients() { return ingredients; }
+    public Map<IngredientAuMenu, Integer> getIngredients() { return ingredients; }
 }

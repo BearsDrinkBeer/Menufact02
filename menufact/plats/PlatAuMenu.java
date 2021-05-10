@@ -1,24 +1,24 @@
 package menufact.plats;
 
-import ingredients.Ingredient;
+import ingredients.IngredientAuMenu;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class PlatAuMenu {
+public class PlatAuMenu implements Plat {
     private int code;
     private String description;
     private double price;
-    private Map<Ingredient, Integer> ingredients = new HashMap<>();
+    private Map<IngredientAuMenu, Integer> ingredients = new HashMap<>();
 
     public PlatAuMenu(){}
 
-    public PlatAuMenu(int code, String description, double prix, Map<Ingredient, Integer> ingredients) {
-        this.code = code;
-        this.description = description;
-        this.price = prix;
-        this.ingredients = ingredients;
-    }
+//    public PlatAuMenu(int code, String description, double prix, Map<Ingredient, Integer> ingredients) {
+//        this.code = code;
+//        this.description = description;
+//        this.price = prix;
+//        this.ingredients = ingredients;
+//    }
 
     @Override
     public String toString() {
@@ -28,9 +28,9 @@ public class PlatAuMenu {
                 ", prix : '" + price + "$'}\n";
     }
 
-    public Map<Ingredient, Integer> getIngredients() { return ingredients; }
+    public Map<IngredientAuMenu, Integer> getIngredients() { return ingredients; }
 
-    public void setIngredients(Ingredient ingredient, Integer quantity) {
+    public void setIngredients(IngredientAuMenu ingredient, Integer quantity) {
         this.ingredients.put(ingredient, quantity);
     }
 

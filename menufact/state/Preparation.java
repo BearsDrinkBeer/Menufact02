@@ -3,7 +3,7 @@ package menufact.state;
 import menufact.plats.PlatChoisi;
 
 public class Preparation extends StatePreparation{
-    Preparation(PlatChoisi plat) {
+    public Preparation(PlatChoisi plat) {
         super(plat);
         this.state = "Preparation";
     }
