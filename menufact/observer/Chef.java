@@ -1,8 +1,8 @@
 package menufact.observer;
 
-import ingredients.IngredientAuMenu;
-import inventaire.IngredientInventaire;
-import menufact.plats.PlatChoisi;
+import ingredients.factory.IngredientAuMenu;
+import ingredients.singleton.IngredientInventaire;
+import menufact.state.PlatChoisi;
 import menufact.state.Impossible;
 import menufact.state.StatePreparation;
 import menufact.state.Termine;
@@ -18,7 +18,7 @@ public class Chef implements EventListener{
     private Map<IngredientAuMenu, Integer> inventaire = IngredientInventaire.getInventaire().getIngredients();
 
     /**
-     * @param plat
+     * @param plat est le plat a ajouter pour la verification
      */
     @Override
     public void update(PlatChoisi plat) {
@@ -27,8 +27,8 @@ public class Chef implements EventListener{
     }
 
     /**
-     * @param plat
-     * @return
+     * @param plat est le plat a verifier
+     * @return vrai si le plat peut etre prepare, sinon retourne faux
      */
     private boolean verify(PlatChoisi plat){
         Map<IngredientAuMenu, Integer> ingredients = plat.getPlat().getIngredients(); //Ingredients du plat au menu
@@ -40,10 +40,7 @@ public class Chef implements EventListener{
         return true;
     }
 
-    /**
-     *
-     */
-    public void preparation(){
+    private void preparation(){
         for(PlatChoisi plat : platsChoisis){
             if(verify(plat)) {
                 state = new Termine(plat);

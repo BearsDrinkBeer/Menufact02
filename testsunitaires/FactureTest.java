@@ -1,12 +1,12 @@
 package testsunitaires;
 
 import menufact.Client;
-import menufact.facture.Facture;
-import menufact.facture.FactureEtat;
-import menufact.facture.exceptions.FactureException;
-import menufact.plats.FactoryPlatAuMenu;
-import menufact.plats.PlatAuMenu;
-import menufact.plats.PlatChoisi;
+import menufact.observer.facture.Facture;
+import menufact.observer.facture.FactureEtat;
+import menufact.observer.facture.exceptions.FactureException;
+import menufact.factory.FactoryPlatAuMenu;
+import menufact.factory.PlatAuMenu;
+import menufact.state.PlatChoisi;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

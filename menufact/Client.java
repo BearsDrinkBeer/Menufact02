@@ -41,7 +41,7 @@ public class Client {
     }
 
     /**
-     * @return
+     * @return l'id, le nom et le numero de carte de credit du client.
      */
     @Override
     public String toString() {

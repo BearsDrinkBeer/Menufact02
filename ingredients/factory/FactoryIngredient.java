@@ -1,7 +1,8 @@
-package ingredients.Factory;
-
-import ingredients.Ingredient;
+package ingredients.factory;
 
 public interface FactoryIngredient {
+    /**
+     * @return un ingredient
+     */
     Ingredient createIngredients();
 }

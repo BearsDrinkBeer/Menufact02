@@ -1,4 +1,4 @@
-package ingredients.Bridge;
+package ingredients.bridge;
 
 public abstract class IngredientEtat {
 
@@ -12,6 +12,9 @@ public abstract class IngredientEtat {
         return unit;
     }
 
+    /**
+     * @return les unites de l'ingredient
+     */
     @Override
     public String toString() {
         return "unit : '" + unit + '\'';

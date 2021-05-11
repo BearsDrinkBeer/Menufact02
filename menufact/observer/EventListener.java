@@ -1,10 +1,7 @@
 package menufact.observer;
 
-import menufact.plats.PlatChoisi;
+import menufact.state.PlatChoisi;
 
 public interface EventListener {
-    /**
-     * @param plat
-     */
     void update(PlatChoisi plat);
 }

@@ -1,7 +1,7 @@
 package testsunitaires;
 
-import menufact.plats.FactoryPlatEnfant;
-import menufact.plats.PlatEnfant;
+import menufact.factory.FactoryPlatEnfant;
+import menufact.factory.PlatEnfant;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

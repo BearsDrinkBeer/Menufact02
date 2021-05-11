@@ -1,12 +1,7 @@
 package menufact.state;
 
-import menufact.plats.PlatChoisi;
-
 public class Termine extends StatePreparation{
 
-    /**
-     * @param plat
-     */
     public Termine(PlatChoisi plat) {
         super(plat);
         this.state = "Termine";
@@ -22,9 +17,6 @@ public class Termine extends StatePreparation{
         //TODO
     }
 
-    /**
-     *
-     */
     @Override
     public void termine() {
         this.plat.setState(new Termine(this.plat));

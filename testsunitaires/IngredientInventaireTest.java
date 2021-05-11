@@ -1,9 +1,9 @@
 package testsunitaires;
 
-import ingredients.Epice;
-import ingredients.Ingredient;
-import ingredients.IngredientAuMenu;
-import inventaire.IngredientInventaire;
+import ingredients.factory.Epice;
+import ingredients.factory.Ingredient;
+import ingredients.factory.IngredientAuMenu;
+import ingredients.singleton.IngredientInventaire;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,6 +1,5 @@
 package testsunitaires;
 
-import ingredients.*;
 import ingredients.factory.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,9 +26,9 @@ class FactoryIngredientsTest {
     @Test
     void createIngredients() {
         assertTrue(lait.createIngredients() instanceof Laitier);
-        assertTrue(epice.createIngredients() instanceof  Epice);
-        assertTrue(fruit.createIngredients() instanceof  Fruit);
-        assertTrue(legume.createIngredients() instanceof  Legume);
-        assertTrue(viande.createIngredients() instanceof  Viande);
+        assertTrue(epice.createIngredients() instanceof Epice);
+        assertTrue(fruit.createIngredients() instanceof Fruit);
+        assertTrue(legume.createIngredients() instanceof Legume);
+        assertTrue(viande.createIngredients() instanceof Viande);
     }
 }

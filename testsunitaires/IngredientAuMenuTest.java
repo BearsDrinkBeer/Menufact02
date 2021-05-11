@@ -1,9 +1,9 @@
 package testsunitaires;
 
 import ingredients.bridge.Liquide;
-import ingredients.Ingredient;
-import ingredients.Laitier;
-import ingredients.TypeIngredient;
+import ingredients.factory.Ingredient;
+import ingredients.factory.Laitier;
+import ingredients.factory.TypeIngredient;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

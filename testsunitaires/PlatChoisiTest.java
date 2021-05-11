@@ -1,8 +1,8 @@
 package testsunitaires;
 
-import menufact.plats.FactoryPlatAuMenu;
-import menufact.plats.PlatAuMenu;
-import menufact.plats.PlatChoisi;
+import menufact.factory.FactoryPlatAuMenu;
+import menufact.factory.PlatAuMenu;
+import menufact.state.PlatChoisi;
 import menufact.state.Commande;
 import menufact.state.Termine;
 import org.junit.jupiter.api.Assertions;

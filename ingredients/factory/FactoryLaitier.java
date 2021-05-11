@@ -1,6 +1,4 @@
-package ingredients.Factory;
-
-import ingredients.Laitier;
+package ingredients.factory;
 
 public class FactoryLaitier implements FactoryIngredient {
     public FactoryLaitier() {}

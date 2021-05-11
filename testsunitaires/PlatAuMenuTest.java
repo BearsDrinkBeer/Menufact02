@@ -2,9 +2,9 @@ package testsunitaires;
 
 import ingredients.bridge.Liquide;
 import ingredients.factory.FactoryLaitier;
-import ingredients.IngredientAuMenu;
-import menufact.plats.FactoryPlatAuMenu;
-import menufact.plats.PlatAuMenu;
+import ingredients.factory.IngredientAuMenu;
+import menufact.factory.FactoryPlatAuMenu;
+import menufact.factory.PlatAuMenu;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

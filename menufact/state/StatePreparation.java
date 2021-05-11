@@ -1,13 +1,11 @@
 package menufact.state;
 
-import menufact.plats.PlatChoisi;
-
 public abstract class StatePreparation {
     protected PlatChoisi plat;
     protected String state;
 
     /**
-     * @param plat
+     * @param plat est le plat auquel on veut modifer l'etat
      */
     public StatePreparation(PlatChoisi plat){
         this.plat = plat;
@@ -20,7 +18,7 @@ public abstract class StatePreparation {
     public abstract void impossible();
 
     /**
-     * @return
+     * @return l'etat du plat
      */
     @Override
     public String toString(){

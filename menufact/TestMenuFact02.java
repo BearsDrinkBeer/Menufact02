@@ -1,16 +1,18 @@
 package menufact;
 
-import ingredients.Fruit;
-import ingredients.Laitier;
+import ingredients.factory.Fruit;
+import ingredients.factory.Laitier;
 import ingredients.bridge.Liquide;
 import ingredients.bridge.Solide;
 import ingredients.factory.FactoryFruit;
 import ingredients.factory.FactoryLaitier;
-import inventaire.IngredientInventaire;
+import ingredients.singleton.IngredientInventaire;
 import menufact.exceptions.MenuException;
-import menufact.facture.Facture;
-import menufact.facture.exceptions.FactureException;
-import menufact.plats.*;
+import menufact.factory.*;
+import menufact.observer.facture.Facture;
+import menufact.observer.facture.exceptions.FactureException;
+import menufact.singleton.Menu;
+import menufact.state.PlatChoisi;
 
 import java.util.ArrayList;
 
@@ -37,7 +39,7 @@ public class TestMenuFact02 {
         pomme.setDescription("poche de pommes");
         pomme.setEtat(new Solide());
 
-        //L'inventaire
+        //L'ingredients.inventaire
         System.out.println("======INVENTAIRE======");
         IngredientInventaire inventaire1 = IngredientInventaire.getInventaire();
         inventaire1.addIngredient(pomme,100);

@@ -1,6 +1,4 @@
-package ingredients.Factory;
-
-import ingredients.Viande;
+package ingredients.factory;
 
 public class FactoryViande implements FactoryIngredient {
     public FactoryViande() {}
