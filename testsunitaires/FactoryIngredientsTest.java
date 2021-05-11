@@ -1,7 +1,7 @@
 package testsunitaires;
 
 import ingredients.*;
-import ingredients.Factory.*;
+import ingredients.factory.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

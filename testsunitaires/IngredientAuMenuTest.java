@@ -1,6 +1,6 @@
 package testsunitaires;
 
-import ingredients.Bridge.Liquide;
+import ingredients.bridge.Liquide;
 import ingredients.Ingredient;
 import ingredients.Laitier;
 import ingredients.TypeIngredient;

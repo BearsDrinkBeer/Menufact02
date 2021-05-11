@@ -3,11 +3,18 @@ package menufact.state;
 import menufact.plats.PlatChoisi;
 
 public class Commande extends StatePreparation{
+
+    /**
+     * @param plat
+     */
     public Commande(PlatChoisi plat) {
         super(plat);
         this.state = "Commande";
     }
 
+    /**
+     *
+     */
     @Override
     public void commande() {
         this.plat.setState(new Commande(this.plat));
@@ -15,21 +22,21 @@ public class Commande extends StatePreparation{
 
     @Override
     public void preparation() {
-        //Not implemented yet
+        //TODO
     }
 
     @Override
     public void termine() {
-        //Not implemented yet
+        //TODO
     }
 
     @Override
     public void servi() {
-        //Not implemented yet
+        //TODO
     }
 
     @Override
     public void impossible() {
-        //Not implemented yet
+        //TODO
     }
 }

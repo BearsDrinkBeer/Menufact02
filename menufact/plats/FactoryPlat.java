@@ -1,2 +1,8 @@
-package menufact.plats;public class FactoryPlat {
+package menufact.plats;
+
+public interface FactoryPlat {
+    /**
+     * @return
+     */
+    Plat createPlat();
 }

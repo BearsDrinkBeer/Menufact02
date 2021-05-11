@@ -13,13 +13,9 @@ public class PlatAuMenu implements Plat {
 
     public PlatAuMenu(){}
 
-//    public PlatAuMenu(int code, String description, double prix, Map<Ingredient, Integer> ingredients) {
-//        this.code = code;
-//        this.description = description;
-//        this.price = prix;
-//        this.ingredients = ingredients;
-//    }
-
+    /**
+     * @return
+     */
     @Override
     public String toString() {
         return "menufact.plats.PlatAuMenu : {" +
@@ -30,6 +26,10 @@ public class PlatAuMenu implements Plat {
 
     public Map<IngredientAuMenu, Integer> getIngredients() { return ingredients; }
 
+    /**
+     * @param ingredient
+     * @param quantity
+     */
     public void setIngredients(IngredientAuMenu ingredient, Integer quantity) {
         this.ingredients.put(ingredient, quantity);
     }

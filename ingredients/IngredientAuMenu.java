@@ -1,6 +1,6 @@
 package ingredients;
 
-import ingredients.Bridge.IngredientEtat;
+import ingredients.bridge.IngredientEtat;
 
 public abstract class IngredientAuMenu implements Ingredient {
 
@@ -41,6 +41,9 @@ public abstract class IngredientAuMenu implements Ingredient {
         this.type = type;
     }
 
+    /**
+     * @return
+     */
     @Override
     public String toString() {
         return "Ingredient{" +

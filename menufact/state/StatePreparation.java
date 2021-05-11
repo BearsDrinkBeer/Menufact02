@@ -6,6 +6,9 @@ public abstract class StatePreparation {
     protected PlatChoisi plat;
     protected String state;
 
+    /**
+     * @param plat
+     */
     public StatePreparation(PlatChoisi plat){
         this.plat = plat;
     }
@@ -16,6 +19,9 @@ public abstract class StatePreparation {
     public abstract void servi();
     public abstract void impossible();
 
+    /**
+     * @return
+     */
     @Override
     public String toString(){
         return "etat : '" + state + '\'';

@@ -16,8 +16,15 @@ public class Menu {
         courant = 0;
     }
 
+    /**
+     * @param p
+     */
     public void ajoute (PlatAuMenu p) { plats.add(p); }
 
+    /**
+     * @param i
+     * @throws MenuException
+     */
     public void position(int i) throws MenuException
     {
         if (i >= plats.size())
@@ -30,11 +37,18 @@ public class Menu {
         return courant;
     }
 
+    /**
+     * @return
+     */
     public PlatAuMenu platCourant()
     {
         return plats.get(courant);
     }
 
+    /**
+     * @param code
+     * @return
+     */
     public PlatAuMenu getPlatAuMenu(int code){
         for(PlatAuMenu plat : plats){
             if(plat.getCode() == code){
@@ -47,6 +61,13 @@ public class Menu {
         return plat;
     }
 
+    public ArrayList<PlatAuMenu> getAllPlatAuMenu(){
+        return this.plats;
+    }
+
+    /**
+     * @throws MenuException
+     */
     public void positionSuivante() throws MenuException
     {
         if (courant+1 >= plats.size())
@@ -55,6 +76,9 @@ public class Menu {
             courant++;
     }
 
+    /**
+     * @throws MenuException
+     */
     public void positionPrecedente() throws MenuException
     {
         if (courant-1 < 0)
@@ -67,10 +91,16 @@ public class Menu {
 
     public void setDescription(String description) { this.description = description; }
 
+    /**
+     * @return
+     */
     public static Menu getMenu() {
         return menu = (menu == null) ? new Menu() : menu;
     }
 
+    /**
+     * @return
+     */
     @Override
     public String toString() {
         return "menufact.Menu : {" +

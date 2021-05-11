@@ -7,6 +7,9 @@ public class PlatSante extends PlatAuMenu {
 
     public PlatSante(){}
 
+    /**
+     * @return
+     */
     @Override
     public String toString() {
         return "menufact.plats.PlatSante : {" +

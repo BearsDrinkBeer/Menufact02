@@ -1,7 +1,7 @@
 package testsunitaires;
 
-import ingredients.Bridge.Liquide;
-import ingredients.Factory.FactoryLaitier;
+import ingredients.bridge.Liquide;
+import ingredients.factory.FactoryLaitier;
 import ingredients.IngredientAuMenu;
 import menufact.plats.FactoryPlatAuMenu;
 import menufact.plats.PlatAuMenu;

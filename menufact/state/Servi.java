@@ -10,26 +10,26 @@ public class Servi extends StatePreparation{
 
     @Override
     public void commande() {
-        //Not implemented yet
+        //TODO
     }
 
     @Override
     public void preparation() {
-        //Not implemented yet
+        //TODO
     }
 
     @Override
     public void termine() {
-        //Not implemented yet
+        //TODO
     }
 
     @Override
     public void servi() {
-        //Not implemented yet
+        this.plat.setState(new Servi(this.plat));
     }
 
     @Override
     public void impossible() {
-        //Not implemented yet
+        //TODO
     }
 }

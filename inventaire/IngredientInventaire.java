@@ -12,16 +12,26 @@ public class IngredientInventaire {
     private IngredientInventaire() {
     }
 
+    /**
+     * @return
+     */
     public static IngredientInventaire getInventaire() {
         if (inventaire == null)
             inventaire = new IngredientInventaire();
         return inventaire;
     }
 
+    /**
+     * @param ingredient
+     * @param quantity
+     */
     public void addIngredient(IngredientAuMenu ingredient, Integer quantity) {
         this.ingredients.put(ingredient,quantity);
     }
 
+    /**
+     * @return
+     */
     @Override
     public String toString() {
         String text = "";

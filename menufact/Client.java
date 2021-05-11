@@ -5,6 +5,11 @@ public class Client {
     private String nom;
     private String numeroCarteCredit;
 
+    /**
+     * @param idClient
+     * @param nom
+     * @param numeroCarteCredit
+     */
     public Client(int idClient, String nom, String numeroCarteCredit) {
         this.idClient = idClient;
         this.nom = nom;
@@ -35,6 +40,9 @@ public class Client {
         this.numeroCarteCredit = numeroCarteCredit;
     }
 
+    /**
+     * @return
+     */
     @Override
     public String toString() {
         return "menufact.Client{" +

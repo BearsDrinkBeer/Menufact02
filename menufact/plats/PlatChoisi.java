@@ -8,12 +8,19 @@ public class PlatChoisi {
     private PlatAuMenu plat;
     private int quantite;
 
+    /**
+     * @param plat
+     * @param quantite
+     */
     public PlatChoisi(PlatAuMenu plat, int quantite) {
         this.plat = plat;
         this.quantite = quantite;
         this.state = new Commande(this);
     }
 
+    /**
+     * @return
+     */
     @Override
     public String toString() {
         return "menufact.plats.PlatChoisi : {" +

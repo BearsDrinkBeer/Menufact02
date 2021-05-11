@@ -1,6 +1,6 @@
 package ingredients;
 
-import ingredients.Bridge.IngredientEtat;
+import ingredients.bridge.IngredientEtat;
 
 public interface Ingredient {
     String getNom();

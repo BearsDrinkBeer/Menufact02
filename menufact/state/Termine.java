@@ -3,6 +3,10 @@ package menufact.state;
 import menufact.plats.PlatChoisi;
 
 public class Termine extends StatePreparation{
+
+    /**
+     * @param plat
+     */
     public Termine(PlatChoisi plat) {
         super(plat);
         this.state = "Termine";
@@ -10,14 +14,17 @@ public class Termine extends StatePreparation{
 
     @Override
     public void commande() {
-        //Not implemented yet
+        //TODO
     }
 
     @Override
     public void preparation() {
-        //Not implemented yet
+        //TODO
     }
 
+    /**
+     *
+     */
     @Override
     public void termine() {
         this.plat.setState(new Termine(this.plat));
@@ -25,11 +32,11 @@ public class Termine extends StatePreparation{
 
     @Override
     public void servi() {
-        //Not implemented yet
+        //TODO
     }
 
     @Override
     public void impossible() {
-        //Not implemented yet
+        //TODO
     }
 }

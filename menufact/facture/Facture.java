@@ -38,6 +38,9 @@ public class Facture {
         this.client = client;
     }
 
+    /**
+     * @return
+     */
     public Client getClientFacture() {
         return this.client;
     }
@@ -212,26 +215,24 @@ public class Facture {
         String lesPlats = new String();
         String factureGenere = new String();
 
-        if(etat == FactureEtat.OUVERTE) {
-            int i = 1;
+        int i = 1;
 
 
-            factureGenere = "Facture generee.\n" +
-                    "Date:" + date + "\n" +
-                    "Description: " + description + "\n" +
-                    "Client:" + client.getNom() + "\n" +
-                    "Les plats commandes:" + "\n" + lesPlats;
+        factureGenere = "Facture generee.\n" +
+                "Date:" + date + "\n" +
+                "Description: " + description + "\n" +
+                "Client:" + client.getNom() + "\n" +
+                "Les plats commandes:" + "\n" + lesPlats;
 
-            factureGenere += "Seq   Plat         Prix   Quantite\n";
-            for (PlatChoisi plat : platchoisi) {
-                factureGenere += i + "     " + plat.getPlat().getCode() + "  " + plat.getPlat().getPrice() + "      " + plat.getQuantite() + "\n";
-                i++;
-            }
-
-            factureGenere += "          TPS:               " + tps() + "\n";
-            factureGenere += "          TVQ:               " + tvq() + "\n";
-            factureGenere += "          Le total est de:   " + total() + "\n";
+        factureGenere += "Seq   Plat         Prix   Quantite\n";
+        for (PlatChoisi plat : platchoisi) {
+            factureGenere += i + "     " + plat.getPlat().getCode() + "  " + plat.getPlat().getPrice() + "      " + plat.getQuantite() + "\n";
+            i++;
         }
+
+        factureGenere += "          TPS:               " + tps() + "\n";
+        factureGenere += "          TVQ:               " + tvq() + "\n";
+        factureGenere += "          Le total est de:   " + total() + "\n";
         return factureGenere;
     }
 }
